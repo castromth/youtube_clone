@@ -15,7 +15,7 @@ class Api {
       Uri.parse("https://www.googleapis.com/youtube/v3/search?part=snippet&q=$search&type=video&key=$API_KEY&maxResults=10")
     );
 
-    decode(response);
+    return decode(response);
   }
 
   decode(http.Response response) {
@@ -25,7 +25,7 @@ class Api {
       List<Video> videos = decoded["items"].map<Video>( (map) {
         return Video.fromJson(map);
       }).toList();
-      print(decoded);
+      return videos;
     } else {
       throw Exception("Falied to load videos");
     }
