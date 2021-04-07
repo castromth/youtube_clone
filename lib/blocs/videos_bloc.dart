@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:youtube_clone/api.dart';
 import 'package:youtube_clone/models/video.dart';
 class VideoBloc  {
@@ -21,6 +20,7 @@ class VideoBloc  {
 
   void _search(String search) async {
     videos = await api.search(search);
+    _videoController.sink.add(videos);
 
   }
 
