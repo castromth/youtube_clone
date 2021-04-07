@@ -4,6 +4,7 @@ import 'package:youtube_clone/blocs/videos_bloc.dart';
 import 'package:youtube_clone/screens/home_screen.dart';
 
 import 'api.dart';
+import 'blocs/favorite_bloc.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      blocs: [Bloc((i) => VideoBloc())],
+      blocs: [Bloc((i) => VideoBloc()),Bloc((i) => FavoriteBloc())],
       child: MaterialApp(
         title: 'YoutubeClone',
         debugShowCheckedModeBanner: false,
